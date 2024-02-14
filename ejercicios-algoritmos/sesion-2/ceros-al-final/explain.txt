@@ -1,0 +1,2 @@
+1. Create a function wich recibes an array 
+2. Filter 0 values and concat at final of array

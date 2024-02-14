@@ -1,0 +1,5 @@
+1. Crear una funcion que reciba un array.
+2. Crear la logica necesaria para validar que los parentesis esten correctamente enparejados.
+ 1. Crear un stack
+ 2. Recorrer la lista de parentesis y por cada parentesis "abierto" añadirlo al stack, si el ultimo parentesis
+  es un abierto y el siguiente es cerrado, eliminar el parentesis para limpiar el stack y seguir validando

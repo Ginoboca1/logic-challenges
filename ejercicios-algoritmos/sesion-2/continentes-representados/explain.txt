@@ -1,0 +1,3 @@
+obj: escribir una funcion que devuelva true si todos los continentes son recibidos.
+
+1.

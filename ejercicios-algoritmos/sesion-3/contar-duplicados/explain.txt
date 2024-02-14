@@ -1,0 +1,6 @@
+1. Recibir el string
+2. Convertirlo a minusculas
+3. Recorrer el string y guardar dentro de un array, 
+los elementos que se repiten.
+4. Eliminar los elementos que se repiten y retornar 
+el lenght

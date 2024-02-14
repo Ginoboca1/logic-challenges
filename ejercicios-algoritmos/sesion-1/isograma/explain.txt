@@ -1,0 +1,7 @@
+1. Crear una funcion que reciba un string y retorne un booleano
+2. Verificar que el string recibido no este vacio 
+3. Normalizar el string
+4. Verificar que las letras no se repitan
+    - Crear un set
+    - Recorrer el string con un for of
+    - Verificar que la letra no se encuentre dentro del set y si es asi retornar false.

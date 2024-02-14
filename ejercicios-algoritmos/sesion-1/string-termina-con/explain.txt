@@ -1,0 +1,5 @@
+1. Crear una funcion que reciba dos string
+2. Verificar que ninguno de los string este vacio
+3. Normalizar ambos string's
+4. Verificar si el primero termina con el segundo
+    - 

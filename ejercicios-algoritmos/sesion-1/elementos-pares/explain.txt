@@ -1,0 +1,2 @@
+1. Crear una funcion que reciba un array de numeros y retorne un array de numeros.
+2. Filtrar lo numeros pares.
