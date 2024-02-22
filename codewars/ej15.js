@@ -8,11 +8,11 @@ const areOrthogonal = (vector1, vector2) => {
   if (vector1.length !== vector2.length) {
     return false;
   }
-  let dotArray = 0;
+
+  let arrayDot;
   for (let i = 0; i < vector1.length; i++) {
-    dotArray += vector1[i] * vector2[i];
+    arrayDot += vector1[i]*vector2[i];
   }
-  return dotArray === 0;
 };
 
 const vector1 = [1, -2];

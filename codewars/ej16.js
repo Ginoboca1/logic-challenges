@@ -13,44 +13,43 @@
  */
 
 const vendingMachine = (coins, item) => {
-  let supportedCoins = [5, 10, 50, 100, 200];
-  let total = 0;
-  for (let coin of coins) {
-    if (!supportedCoins.includes(coin)) {
-      return "Money unsupported";
-    }
-  }
-  for (let i = 0; i < coins.length; i++) {
-    total += coins[i];
+  const availableCoins = new Set([5, 10, 50, 100, 200]);
+
+  if (!coins.every((coin) => availableCoins.has(coin))) {
+    return {
+      message: "Invalid coins",
+      coins,
+    };
   }
 
-  const availableProducts = [
-    { slot: 1, name: "Coca-Cola", price: 150 },
-    { slot: 2, name: "Oreo", price: 170 },
-    { slot: 3, name: "M&M", price: 140 },
-    { slot: 4, name: "Doritos", price: 200 },
-    { slot: 5, name: "hot-dog", price: 300 },
-  ];
+  let total = coins.reduce((acc, val) => acc + val, 0);
 
-  const foundedProduct = availableProducts.filter(
-    (product) => product.slot === item
-  );
+  const availableProducts = new Map([
+    [1, { name: "Coca-Cola", price: 150 }],
+    [2, { name: "Oreo", price: 170 }],
+    [3, { name: "M&M", price: 140 }],
+    [4, { name: "Doritos", price: 200 }],
+    [5, { name: "hot-dog", price: 300 }],
+  ]);
 
-  if (foundedProduct.length === 0) {
-    return "Product not founded";
-  } else {
-    const product = foundedProduct[0];
-    if (product.price > total) {
-      let missingMoney = product.price - total;
-      return `Money insuficient, missin $${missingMoney}`;
-    } else if (product.price < total) {
-      let rest = total - product.price;
-      return `${product.name}, vuelto: $${rest}`;
-    } else if (product.price === total) {
-      return `${product.name}, vuelto: $0`;
-    }
+  if (!availableProducts.has(item)) {
+    return {
+      message: "Product unavailable",
+      coins,
+    };
   }
+  const { name, price } = availableProducts.get(item);
+  if (price > total) {
+    return {
+      message: "Insufficient cash",
+    };
+  }
+  const rest = total - price;
+  return {
+    name,
+    rest,
+  };
 };
 
-let coins = [50, 50, 100, 10, 500];
-console.log(vendingMachine(coins, 5));
+let coins = [50, 50, 100, 10];
+console.log(vendingMachine(coins, 3));
