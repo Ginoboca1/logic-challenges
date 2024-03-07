@@ -17,21 +17,25 @@
         - Si la longitud de la pila es 0 o el delimitador que se encuentra es diferente al char actual
         retornar false. Ya que significa que no existe su par de apertura.
 */
-const equality = (str) => {
+var isValid = function (s) {
+  let open = new Set(['(', '[', '{']);
+  let close = new Map([
+      [')', '('],
+      [']', '['],
+      ['}', '{']
+  ]);
   let stack = [];
-  let open = "({[";
-  let close = ")}]";
 
-  for (char of str) {
-    if (open.includes(char)) {
-      stack.push(char);
-    } else if (close.includes(char)) {
-      if (stack.length === 0 || open[close.indexOf(char)] !== stack.pop()) {
-        return false;
-      }
-    }
+  for (char of s) {
+      if (open.has(char)) {
+          stack.push(char)
+      } else if (close.has(char)) {
+          if (stack.length === 0 || stack.pop() !== close.get(char)) {
+              return false;
+          }
+      } else return false;
   }
   return stack.length === 0;
 };
 
-console.log(equality("{}"));
+console.log(isValid("{}"));

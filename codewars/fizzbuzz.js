@@ -21,7 +21,6 @@ const printNumbers = () => {
   }
 };
 
-//Improve version
 // const printNumbers = () => {
 //   let output;
 //   for (let i = 1; i <= 100; i++) {

@@ -3,12 +3,20 @@
  * de forma recursiva.
  */
 
-const factorial = (numero) => {
-  if (numero === 0) {
+const factorialRecursivo = (n) => {
+  if (n === 0) {
     return 1;
   } else {
-    return numero * factorial(numero - 1);
+    return n * factorial(n - 1);
   }
 };
 
-console.log(factorial(25));
+const factorialBucle = (n) => {
+  let res = 1;
+  for (let i = 1; i <= n; i++) {
+    res = res * i;
+  }
+  return res;
+};
+
+console.log(factorialBucle(25));
